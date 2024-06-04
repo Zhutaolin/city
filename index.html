@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>“逃离北上广”现象探索</title>
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <!-- 标题 -->
+    <h1>离城之旅：“逃离北上广”现象探索</h1>
+    <p class="text">
+        北上广作为我国经济实力最强的一线城市，是我国人口流动三大全国性聚集中心——京津冀、珠三角、长三角的核心，对于大多数人来说，北上广意味着更多的工作机会、更好的基础设施水平、更优质的医疗资源和教育资源、隐藏在人群中的自由。
+    </p>
+    <p class="text">
+        然而，在向上求索的人群中，涌现出了一小部分向下流动的个体。对于他们而言，在北上广的生活压力太大，曾经对大城市的美好想象在现实面前成了地上的碎玻璃：买不起的房、承担不了的高消费、35岁之后的职业发展瓶颈、落户困难……于是，一些人主动选择“逃离”北上广。
+    </p>
+    <br>
+
+    <!-- part1:当代人向上流动和向下流动的情况 -->
+    <h2>Top100城市间的人口迁徙：逆流而上，还是顺流而下</h2>
+    <p class="text">在经济快速发展的现代社会中，人们在城市之间的流动一直在不停上演着。
+        为了获得更好的生活体验和发展条件，人们常常会离开小城市，去大城市探索新的发展机会。但是，大城市真的是所有人生活的首选吗？
+        我们从百度人口迁徙数据出发，聚焦于排名前100的城市，探索人们的城市间迁徙现象。</p>
+    <br>
+    <!-- 弧线图部分 -->
+    <div class="part1">
+        <div id="arc-chart-1"></div>
+        <div class="arc-text" style="margin-top:5%">
+            <p class="arc-text-p">在中国排名前100的城市中，共有北京、上海、广州、深圳4个一线城市，杭州、成都等15个准一线城市，无锡、厦门等30个二线城市，徐州、乌鲁木齐等51个三线城市。
+                百度人口迁徙数据记录了2018-2023年各个始发城市到终点城市的迁徙指数，通过计算差值可以得到每个城市到另一个城市的实际迁出指数。
+            </p>
+            <p class="arc-text-p">
+                左图为top100的不同级别城市人口实际迁出情况（实际迁出指数＞0且指数值位于前50%），包括从“高排名”城市迁出到“低排名”城市的向下流动和从“低排名”城市迁出到“高排名”城市的向上流动情况。
+                可以看出，在经济改革、城市发展的大背景下，从低排名城市向上流动仍是我国当前人口迁徙的主流趋势，各个一线城市和准一线城市是大多数人向往的目标城市；
+                然而，仍有不少人在逆流而上的浪潮中选择了主动退出，弧线图显示他们会从一线城市尤其是北京和广州向下迁出到准一线城市、二线城市甚至是三线城市，说明自2003年萌芽的“逃离北上广”现象至今仍然存在。
+            </p>
+            <p class="arc-text-p">
+                那么，人们究竟从北上广“逃离”到了哪些城市，是什么因素吸引他们选择了定居于此？接下来，我们从更细致的角度进一步探索“逃离北上广”现象。
+            </p>
+        </div>
+    </div>
+    <br>
+
+
+    <!-- 地图部分 -->
+    <h2>逃离北上广现象探索：从何来，到哪里去</h2>
+    <!-- wxy：气泡地图 -->
+    <h3>逃离是一种态度：流出人口最多的地区</h3>
+    <p class="text">
+        不同地区的人口数量和人们对待迁徙的态度有所不同，有些地区的人们更向往远方的生活，也有些地区的人们安土重迁，因此各个地区的人口流出数量存在很大差异。我国哪些地区人口流动非常多，而哪些地区人口流动较少？从全国视角来看，逃离北上广这一现象是大范围的重要现象吗？
+    </p>
+    <svg id="map_wxy2" width="700" height="650" style="margin-left:2%"></svg>
+    <svg id="bar-chart_wxy2" width="500" height="650"></svg>
+    <div class="timeline_wxy2" id="timeline_wxy2">
+        <button id="play-button_wxy2">►</button>
+        <button id="prev-button_wxy2">◀</button>
+        <button class="year-button_wxy2" data-year="2018">2018</button>
+        <button class="year-button_wxy2" data-year="2019">2019</button>
+        <button class="year-button_wxy2" data-year="2020">2020</button>
+        <button class="year-button_wxy2" data-year="2021">2021</button>
+        <button class="year-button_wxy2" data-year="2022">2022</button>
+        <button class="year-button_wxy2 active_wxy2" data-year="2023">2023</button>
+        <button id="next-button_wxy2">▶</button>
+    </div>
+    <p class="text">
+        基于百度迁移指数提供的各个始发城市和终点城市之间历年人口实际迁徙指数数据，我们计算了各个城市作为始发城市的历年总迁徙指数，绘制了上面的气泡地图和条形图。
+    </p>
+    <p class="text">
+        京津冀城市群包括城市北京、天津、保定、唐山、廊坊、石家庄、秦皇岛、张家口、承德、沧州、衡水、邢台、邯郸和安阳；长三角城市群包括上海、南京、无锡、常州、苏州、南通、盐城、扬州、镇江、泰州、杭州、宁波、绍兴、湖州、嘉兴、金华、舟山、台州、温州、合肥、芜湖、马鞍山、铜陵、安庆、宣城、池州和滁州；珠三角城市群广州、深圳、佛山、东莞、中山、惠州、珠海、江门、肇庆、韶关、汕尾、阳江、河源、清远、云浮。气泡地图中气泡的大小与该城市此年的年度实际迁徙指数成正比，蓝色气泡代表属于京津冀城市群城市的人口迁徙情况，粉色气泡代表长三角城市群城市的人口迁徙情况，橙色气泡代表珠三角城市群城市的人口迁徙情况。条形图展示了历年全国总迁徙指数最大的Top10城市。
+    </p>
+    <p class="text">
+        我国东南部和东部沿海地区的流出人口明显多于西部地区和北部地区。从全国视角来看，北京、上海和广州均属于存在大量流出人口的城市，它们所在的城市群——京津冀城市群、长三角城市群、珠三角城市群都存在大量人口流出。2023年，广州、东莞、佛山、深圳、苏州、杭州、惠州、上海、无锡和成都是全国流出人口最多的10大城市。不同年份的十大城市有所不同，但广州和上海均榜上有名。尽管北京不是2023年流出人口最多的10大城市之一，但从2018年到2023年，北京长期跻身流出人口最多的20大城市之列，最高时处于6名。
+    </p>
+
+    <!-- 连线地图：1 -->
+    <h3>被包围的城市：逃离北上广中的三大城市群</h3>
+    <p class="text">
+        考虑到住房价格、收入情况、空间距离、居住满意度、公共服务供给等情况，人们可能会存在一定的终点城市偏好，不同地区的人们可能有不同的流动方向。我们已经发现北上广存在大量人口流出，那么从北上广流出的这样多的人都流到哪些城市了呢？
+    </p>
+    <svg id="map_wxy1" width="700" height="650" style="margin-left:2%"></svg>
+    <svg id="bar-chart_wxy1" width="500" height="650"></svg>
+    <div class="timeline_wxy1" id="timeline_wxy1">
+        <button id="play-button_wxy1">►</button>
+        <button id="prev-button_wxy1">◀</button>
+        <button class="year-button_wxy1" data-year="2018">2018</button>
+        <button class="year-button_wxy1" data-year="2019">2019</button>
+        <button class="year-button_wxy1" data-year="2020">2020</button>
+        <button class="year-button_wxy1" data-year="2021">2021</button>
+        <button class="year-button_wxy1" data-year="2022">2022</button>
+        <button class="year-button_wxy1 active_wxy1" data-year="2023">2023</button>
+        <button id="next-button_wxy1">▶</button>
+    </div>
+    <p class="text">
+        百度迁移指数提供了各个始发城市和终点城市之间的历年人口实际迁徙指数数据，我们筛选出了年度实际迁徙指数大于等于100的流动路线，绘制了连线地图和北上广三大城市的条形图。连线地图中线条宽度与年度实际迁徙指数大小成正比，蓝色连线代表以属于京津冀城市群城市为始发城市的路线的人口迁徙情况，粉色连线代表以属于长三角城市群城市为始发城市的路线的人口迁徙情况，橙色连线代表以属于珠三角城市群城市为始发城市的路线的人口迁徙情况。条形图则分别展示了以北京、上海、广州作为始发城市的年度实际迁徙指数最大的Top4路线。
+    </p>
+    <p class="text">
+        从2018年到2023年，大多数人口在东部、中部和东南沿海地区内部流动，从东部、中部和东南沿海向西部流动的人口很少。相对于跨省流动，大多数人更倾向于省内流动；相比于跨多省流动，大多数人更倾向于跨单省流动。这表明空间距离可能是人口迁徙的重要考虑因素之一。从北上广流出的人口大多数流向了其周边城市——其所处城市群中的城市。从北京流出的人口大量流向廊坊、天津、保定和张家口等城市，这些城市均属于京津冀城市圈；从上海流出的人口大量流向苏州、嘉兴、南通和杭州等城市，这些城市均属于长三角城市圈；从广州流出的人口大量流向佛山、东莞、深圳和清远等城市，这些城市均属于珠三角城市圈。
+    </p>
+
+    <!-- 连线地图：2，去除城市圈 -->
+    <h3>比远方更远：除三大城市群外，从北上广迁移出的人口都去了哪？</h3>
+    <p class="text">
+        北上广流出的人口大量流向了其所在城市群，除了京津冀城市群、长三角城市群和珠三角城市群，从北上广逃出的人们还有哪些选择？
+    </p>
+    <svg id="map_wxy3" width="700" height="650" style="margin-left:2%"></svg>
+    <svg id="bar-chart_wxy3" width="500" height="650"></svg>
+    <div class="timeline_wxy3" id="timeline_wxy3">
+        <button id="play-button_wxy3">►</button>
+        <button id="prev-button_wxy3">◀</button>
+        <button class="year-button_wxy3" data-year="2018">2018</button>
+        <button class="year-button_wxy3" data-year="2019">2019</button>
+        <button class="year-button_wxy3" data-year="2020">2020</button>
+        <button class="year-button_wxy3" data-year="2021">2021</button>
+        <button class="year-button_wxy3" data-year="2022">2022</button>
+        <button class="year-button_wxy3 active_wxy3" data-year="2023">2023</button>
+        <button id="next-button_wxy3">▶</button>
+    </div>
+    <p class="text">
+        百度迁移指数提供了各个始发城市和终点城市之间历年人口实际迁徙指数数据，我们筛选得到了所有始发城市为北京、上海或广州的数据，并分别过滤掉了终点城市属于京津冀城市群、长三角城市群和珠三角城市群的数据，绘制了连线地图和条形图。
+    </p>
+    <p class="text">
+        从北上广逃出的人们更多流向了东部、东南沿海和北部地区，西部地区仍然没有受到逃出北上广的人们的青睐。从北京逃出的人们更倾向于向我国北部沿海城市流动，也有少数流向了成都等中部地区城市。从上海逃离的人们更倾向于向我国东部沿海城市流动，也有少数人流向了重庆等中部地区城市。从广州逃离的人民更倾向于向我国中南部城市流动，大多数流动局限于广东省省内。具体来看，除京津冀城市群外，从北京逃出的人们青睐的城市包括葫芦岛、赤峰、大同和德州等。除长三角城市群外，从上海逃离的人们青睐的城市包括淮安、阜阳、宿迁和临沂等。除珠三角城市群外，从广州逃离的人们青睐的城市包括茂江、湛江、揭阳和赣州等。
+    </p>
+    <br>
+
+
+    <!-- part3:逃离的牵引力 -->
+    <h2>逃离的牵引力：热门迁入城市的深入解读</h2>
+    <p class="text">
+        数据筛选和整合：根据2018年-2023年的百度迁移数据，分别选取出发地为北京、上海、广州的迁移意愿最高的TOP5城市，共15个城市，从房价、消费、收入、医疗、就业五个层面描述逃离北上广的牵引力。
+    </p>
+    <p class="text">1.房价指标：该城市的房价/全国平均房价。</p>
+    <p class="text">2.消费指标：该城市人均消费额/全国人均消费额。</p>
+    <p class="text">3.收入指标：该城市人均可支配收入/全国人均可支配收入。</p>
+    <p class="text">4.就业指标：该城市第三产业就业人员占比/全国第三产业就业人员占比。</p>
+    <p class="text">5.医疗：该城市人均获得执业（助理）医生数量/全国人均获得执业（助理）医生数量；人均获得执业（助理）医生数量=执业（助理）医生数量/该城市户籍人口。</p>
+    <p class="text">对2018-2023年的各指标计算了平均值，按照北上广三个城市进行分类，探究驱使人们从北上广逃离的因素是哪些？</p>
+    <!-- 雷达图 -->
+    <div class="part3">
+        <div>
+            <div class="rad"></div>
+            <div class="rad-button" style="margin-top:5%;margin-left: 20%;">
+                <button id="data0-button">全体</button>
+                <button id="data1-button">北京</button>
+                <button id="data2-button">上海</button>
+                <button id="data3-button">广州</button>
+            </div>
+        </div>
+        <div class="arc-text" style="margin-left:10%;margin-top:5%">
+            <p class="arc-text-p">
+                通过分析，可以发现
+            </p>
+            <p class="arc-text-p">1.从全体城市来看，吸收城市因为具有高就业水平、高医疗水平、一般收入水平、低消费水平、低房价水平的特点。</p>
+            <p class="arc-text-p">（1）高就业水平代表着有更高的第三产业就业机会，就业机会较为乐观。</p>
+            <p class="arc-text-p">（2）高医疗水平代表着更优秀的公共服务水平。</p>
+            <p class="arc-text-p">（3）收入水平较为平均意味着进入低收入城市会面临着收入降低的风险。</p>
+            <p class="arc-text-p">（4）低消费水平代表着物价较低。物价低和房价低，意味着生活成本较低。</p></p>
+            <p class="arc-text-p">2.从不同迁出城市来看，不同迁出城市流向的城市基本有着类似的特征，但是再某些特点上有所不同。</p>
+            <p class="arc-text-p">（1）从北京迁出的流入城市中，济南是较为特殊的城市，其房价、消费水平和收入水平都较高，猜测与其同样也是旅游城市有关。</p>
+            <p class="arc-text-p">（2）从上海迁出的流入城市中，房价指数、消费指数和收入指数都高于其他两类城市。</p>
+        </div>
+    </div>
+    <br>
+
+
+
+    <!-- part4:词云图 -->
+    <h2>人间烟火：解读Top15热门迁入城市的魅力</h2>
+    <p class="text">不论是繁华的大都市，还是静谧的小城，每座城市都有其独特的魅力，吸引着无数人前来定居。在“逃离北上广”的浪潮中，赤峰、淮安、茂名...这些热门迁入城市成为了新的焦点。
+        为什么人们会选择这些城市？为回答这一问题，我们收集了知乎平台用户对这些城市的真实评价数据（共1812条），选取了评价内容中的高频词进行可视化。
+        让我们一起走近这些城市，感受那份人间烟火的温暖与魅力。</p>
+    <h3>各热门迁入城市的评价词云图</h3>
+    <div id="wordsmap"></div>
+
+
+
+
+    <!-- Completed: Load JS libraries: jQuery, bootstrap, D3, D3 Tooltips -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <script src="js/data.js"></script>
+
+    <script src="js/main.js"></script>
+    <script src="js/geo-bubble.js"></script>
+    <script src="js/geo-line1.js"></script>
+    <script src="js/geo-line2.js"></script>
+    <script src="js/index.js"></script>
+    <script src="js/wordsmap.js"></script>
+
+    <!-- <script src="js/chart.js" type="module"></script> -->
+    <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+</body>
+
+</html>

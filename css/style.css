@@ -1,0 +1,338 @@
+/* 整体样式 */
+html,
+body {
+    background-color: #FEF8EF;
+    margin: 0;
+    padding: 0;
+}
+h1{
+    text-align: center;
+    margin-bottom: 20px;
+}
+h2{
+    text-align: center;
+    margin-bottom: 35px;
+}
+h3{
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#arc-chart-1{
+    margin-left: 5%;
+    align-items: center; /* 垂直居中 */
+}
+.text{
+    margin-left: 5%;
+    margin-right: 5%;
+    font-size:16px;
+    text-indent: 2em;
+}
+.part1{
+    display: flex;
+}
+.part3{
+    display: flex;
+}
+.arc-text{
+    margin-top: 3%;
+    margin-left: 3%;
+    margin-right: 5%;
+}
+.arc-text-p{
+    font-size:16px;
+    text-indent: 2em;
+}
+
+
+#wordsmap{
+    margin-left: 2%;
+    align-items: center; /* 垂直居中 */
+}
+
+
+
+
+/* 王雪莹：连线地图 */
+.country_wxy1 {
+    stroke: black;
+    stroke-width: 0.5px;
+    fill: #F1E5D1;
+}
+
+.label_wxy1 {
+    font-size: 12px;
+    fill: #000;
+}
+
+.city_wxy1 {
+    stroke: none;
+}
+
+.hovered_wxy1 {
+    fill: orange;
+}
+
+.legend_wxy1 text {
+    font-size: 12px;
+    fill: gray;
+}
+
+.year-button_wxy1 {
+    margin: 5px;
+    padding: 5px;
+    background-color: lightgrey;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.year-button_wxy1:hover {
+    background-color: grey;
+    color: white;
+}
+
+.timeline_wxy1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.timeline_wxy1 button {
+    margin: 0 5px;
+    padding: 10px;
+    background-color: #B0C5A4;
+    /* 按钮背景色 */
+    border: none;
+    border-radius: 50%;
+    color: white;
+    cursor: pointer;
+}
+
+.timeline_wxy1 button.active_wxy1 {
+    background-color: orange;
+}
+
+.timeline_wxy1 button:hover {
+    background-color: lightgrey;
+}
+
+.tooltip_wxy1 {
+    position: absolute;
+    text-align: center;
+    padding: 5px;
+    font: 12px sans-serif;
+    background: #FFEAE3;
+    /* 悬浮框背景色 */
+    border: 0px;
+    border-radius: 8px;
+    pointer-events: none;
+}
+
+.migration-line_wxy1 {
+    fill: none;
+}
+
+/* 王雪莹：连线地图-2 */
+.country_wxy3 {
+    stroke: black;
+    stroke-width: 0.5px;
+    fill: #F1E5D1;
+}
+
+.label_wxy3 {
+    font-size: 12px;
+    fill: #000;
+}
+
+.city_wxy3 {
+    stroke: none;
+}
+
+.hovered_wxy3 {
+    fill: orange;
+}
+
+.legend_wxy3 text {
+    font-size: 12px;
+    fill: gray;
+}
+
+.year-button_wxy3 {
+    margin: 5px;
+    padding: 5px;
+    background-color: lightgrey;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.year-button_wxy3:hover {
+    background-color: grey;
+    color: white;
+}
+
+.timeline_wxy3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.timeline_wxy3 button {
+    margin: 0 5px;
+    padding: 10px;
+    background-color: #B0C5A4;
+    border: none;
+    border-radius: 50%;
+    color: white;
+    cursor: pointer;
+}
+
+.timeline_wxy3 button.active_wxy3 {
+    background-color: orange;
+}
+
+.timeline_wxy3 button:hover {
+    background-color: lightgrey;
+}
+
+.tooltip_wxy3 {
+    position: absolute;
+    text-align: center;
+    padding: 5px;
+    font: 12px sans-serif;
+    background: #FFEAE3;
+    border: 0px;
+    border-radius: 8px;
+    pointer-events: none;
+}
+
+.migration-line_wxy3 {
+    fill: none;
+}
+
+/* 王雪莹：气泡地图 */
+.country_wxy2 {
+    /* 地图背景 */
+    stroke: black;
+    stroke-width: 0.5px;
+    fill: #F1E5D1;
+}
+
+.label_wxy2 {
+    font-size: 12px;
+    fill: #000;
+}
+
+.city_wxy2 {
+    stroke: none;
+}
+
+.hovered_wxy2 {
+    fill: orange;
+}
+
+.legend_wxy2 text {
+    font-size: 12px;
+    fill: gray;
+}
+
+.year-button_wxy2 {
+    margin: 5px;
+    padding: 5px;
+    background-color: lightgrey;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.year-button_wxy2:hover {
+    background-color: grey;
+    color: white;
+}
+
+.timeline_wxy2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.timeline_wxy2 button {
+    margin: 0 5px;
+    padding: 10px;
+    background-color: #B0C5A4;
+    border: none;
+    border-radius: 50%;
+    color: white;
+    cursor: pointer;
+}
+
+.timeline_wxy2 button.active_wxy2 {
+    background-color: orange;
+}
+
+.timeline_wxy2 button:hover {
+    background-color: lightgrey;
+}
+
+.tooltip_wxy2 {
+    position: absolute;
+    text-align: center;
+    padding: 5px;
+    font: 12px sans-serif;
+    background: #FFEAE3;
+    border: 0px;
+    border-radius: 8px;
+    pointer-events: none;
+}
+
+/* 杜咏曦 雷达图 */
+.rad{
+    background-color: #FEF8EF;
+    align-items: center;
+    width:500px;
+}
+.box{
+    /* margin: 5% auto; */
+    width: 500px;
+    height: 500px;
+    background-color: #FEF8EF;
+}
+
+.title{
+    font-size: 20px;
+}
+
+.label{
+    font-size: 13px;
+}
+
+.polygon{
+    fill-opacity: 0.8;
+}
+.rad-button{
+    display: flex;
+    justify-content: center; /* 水平居中 */
+    align-items: center; /* 垂直居中 */
+}
+.rad-button button {
+     margin: 0 5px;
+     padding: 10px;
+     background-color: #B0C5A4;
+     border: none;
+     border-radius: 50%;
+     color: white;
+     cursor: pointer;
+}
+.rad-button #data1-button{
+    background-color: #95AFCA;
+}
+.rad-button #data2-button{
+    background-color: #ED9A9B;
+}
+.rad-button #data3-button{
+    background-color: #F7BB80;
+}
