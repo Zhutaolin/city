@@ -5,51 +5,59 @@ body {
     margin: 0;
     padding: 0;
 }
-h1{
-    text-align: center;
-    margin-bottom: 20px;
-}
-h2{
-    text-align: center;
-    margin-bottom: 35px;
-}
-h3{
+
+h1 {
     text-align: center;
     margin-bottom: 20px;
 }
 
-#arc-chart-1{
-    margin-left: 5%;
-    align-items: center; /* 垂直居中 */
+h2 {
+    text-align: center;
+    margin-bottom: 35px;
 }
-.text{
+
+h3,h4 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#arc-chart-1 {
+    margin-left: 5%;
+    align-items: center;
+    /* 垂直居中 */
+}
+
+.text {
     margin-left: 5%;
     margin-right: 5%;
-    font-size:16px;
+    font-size: 16px;
     text-indent: 2em;
 }
-.part1{
+
+.part1 {
     display: flex;
 }
-.part3{
+
+.part3 {
     display: flex;
 }
-.arc-text{
+
+.arc-text {
     margin-top: 3%;
     margin-left: 3%;
     margin-right: 5%;
 }
-.arc-text-p{
-    font-size:16px;
+
+.arc-text-p {
+    font-size: 16px;
     text-indent: 2em;
 }
 
-
-#wordsmap{
-    margin-left: 2%;
-    align-items: center; /* 垂直居中 */
+/* 树形图 */
+#wordsmap {
+    margin-left: 10%;
+    margin-right: 10%;
 }
-
 
 
 
@@ -290,49 +298,165 @@ h3{
 }
 
 /* 杜咏曦 雷达图 */
-.rad{
+.rad {
     background-color: #FEF8EF;
     align-items: center;
-    width:500px;
+    width: 500px;
 }
-.box{
+
+.box {
     /* margin: 5% auto; */
     width: 500px;
     height: 500px;
     background-color: #FEF8EF;
 }
 
-.title{
+.title {
     font-size: 20px;
 }
 
-.label{
+.label {
     font-size: 13px;
 }
 
-.polygon{
+.polygon {
     fill-opacity: 0.8;
 }
-.rad-button{
+
+.rad-button {
     display: flex;
-    justify-content: center; /* 水平居中 */
-    align-items: center; /* 垂直居中 */
+    justify-content: center;
+    /* 水平居中 */
+    align-items: center;
+    /* 垂直居中 */
 }
+
 .rad-button button {
-     margin: 0 5px;
-     padding: 10px;
-     background-color: #B0C5A4;
-     border: none;
-     border-radius: 50%;
-     color: white;
-     cursor: pointer;
+    margin: 0 5px;
+    padding: 10px;
+    background-color: #B0C5A4;
+    border: none;
+    border-radius: 50%;
+    color: white;
+    cursor: pointer;
 }
-.rad-button #data1-button{
+
+.rad-button #data1-button {
     background-color: #95AFCA;
 }
-.rad-button #data2-button{
+
+.rad-button #data2-button {
     background-color: #ED9A9B;
 }
-.rad-button #data3-button{
+
+.rad-button #data3-button {
     background-color: #F7BB80;
+}
+
+.bar:hover {
+    fill: #B0C5A4;
+}
+
+.axis-x text {
+    font-size: 12px;
+}
+
+.axis-y text {
+    font-size: 12px;
+}
+
+.tooltipdyx {
+    position: absolute;
+    text-align: center;
+    padding: 5px;
+    font: 12px sans-serif;
+    background: #FFEAE3;
+    /* 悬浮框背景色 */
+    border: 0px;
+    border-radius: 8px;
+    pointer-events: none;
+}
+
+#columnForm {
+    width: 88%;
+    color: #333;
+    margin: 0 auto;
+    margin-bottom: 30px;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    padding: 5px 20px 0px 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#columnForm label {
+    font-weight: bold;
+    color: #666;
+}
+
+#columnForm label {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+#columnForm input[type="checkbox"] {
+    /* 隐藏原始复选框 */
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    /* 使用自定义样式代替 */
+    width: 20px;
+    /* 设置宽度 */
+    height: 20px;
+    /* 设置高度 */
+    border: 1px solid #999;
+    /* 设置边框 */
+    border-radius: 3px;
+    /* 设置圆角 */
+    margin-right: 10px;
+    /* 设置右侧间距 */
+    vertical-align: middle;
+    /* 垂直居中 */
+    position: relative;
+}
+
+
+/* 定义复选框的选中状态样式 */
+#columnForm input[type="checkbox"]:checked::before {
+    content: "\2713";
+    /* 使用Unicode编码来显示对号 ✓ */
+    display: block;
+    text-align: center;
+    line-height: 20px;
+    /* 使对号垂直居中 */
+}
+
+.tooltipdyxrad {
+    position: absolute;
+    text-align: left;
+    padding: 5px;
+    font: 12px sans-serif;
+    background: #FFEAE3;
+    /* 悬浮框背景色 */
+    border: 0px;
+    border-radius: 8px;
+    pointer-events: none;
+}
+
+/* 房价散点 */
+#hprice {
+    display: flex;
+    justify-content: center;
+}
+
+.hprice-text {
+    padding-left: 25%;
+    font-size: small;
+    color: rgb(59, 59, 59);
+}
+
+/* 医疗柱形图 */
+#health-chart-1 {
+    display: flex;
+    justify-content: center;
 }

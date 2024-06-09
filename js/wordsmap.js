@@ -3,7 +3,7 @@ wordsmap();
 
 function wordsmap() {
     // Specify the chart’s dimensions.
-    const width = 1200;
+    const width = 1000;
     const height = 500;
 
     // Create the SVG container.
@@ -15,42 +15,56 @@ function wordsmap() {
         .attr("id", "words")
         .attr("width", width)
         .attr("height", height);
+        
+    // Create a tooltip div that is hidden by default
+    const tooltip = d3.select("body").append("div")
+        .attr("class", "tooltip")
+        .style("position", "absolute")
+        .style("background-color", "#FFEAE3")
+        .style("border", "0")
+        .style("padding", "10px")
+        .style("border-radius", "8px")
+        .style("text-align", "center")
+        .style("font", "12px sans-serif")
+        .style("box-shadow", "0px 0px 10px rgba(0, 0, 0, 0.1)")
+        .style("pointer-events", "none")
+        .style("opacity", 0);
 
-    console.log(wordsdata)
+    console.log(wordsdata);
 
     // Specify the color scale.
     const color = d3.scaleOrdinal(wordsdata.children.map(d => d.name), d3.schemeTableau10);
 
     // Compute the layout.
     const root = d3.treemap()
-    .tile(d3.treemapBinary) // 不同的树图布局函数，其他的还有：d3.treemapSquarify
-    .size([width, height])
-    .padding(1)
-    .round(true)
-    (d3.hierarchy(wordsdata)
-        .sum(d => d.value)
-        .sort((a, b) => b.value - a.value));
+        .tile(d3.treemapBinary) // 不同的树图布局函数，其他的还有：d3.treemapSquarify
+        .size([width, height])
+        .padding(2)
+        .round(true)
+        (d3.hierarchy(wordsdata)
+            .sum(d => d.value)
+            .sort((a, b) => b.value - a.value));
 
     // Add a cell for each leaf of the hierarchy.
-    const leaf = svg.selectAll("g")
-    .data(root.leaves())
-    .join("g")
-        .attr("transform", d => `translate(${d.x0},${d.y0})`);
-
-    // // Append a tooltip.
-    // const format = d3.format(",d");
-    // leaf.append("title")
-    //     // .text(d => `${d.ancestors().reverse().map(d => d.data.name).join(".")}\n${format(d.value)}`);
-    //     .text(d => `${d.data.name}\n${format(d.value)}`);
     const format = d3.format(",d");
-    leaf.append("title")
-        .text(d => {
+    const leaf = svg.selectAll("g")
+        .data(root.leaves())
+        .join("g")
+        .attr("transform", d => `translate(${d.x0},${d.y0})`)
+        .on("mouseover", (event, d) => {
             const ancestors = d.ancestors().reverse().map(d => d.data.name);
-            // 只取倒数第二个祖先节点
             const secondLastAncestor = ancestors.length > 1 ? ancestors[ancestors.length - 2] : 'None';
             const value = format(d.value);
-            return `${d.data.name}\n城市: ${secondLastAncestor}\n词频: ${value}`;
-    });
+            tooltip.html(`<b>${d.data.name}</b><br>城市: ${secondLastAncestor}<br>词频: ${value}`)
+                .style("opacity", 1);
+        })
+        .on("mousemove", (event) => {
+            tooltip.style("left", (event.pageX + 10) + "px")
+                .style("top", (event.pageY + 10) + "px");
+        })
+        .on("mouseout", () => {
+            tooltip.style("opacity", 0);
+        });
 
     // Append a color rectangle. 
     leaf.append("rect")
@@ -63,7 +77,7 @@ function wordsmap() {
     // Append a clipPath to ensure text does not overflow.
     leaf.append("clipPath")
         .attr("id", d => (d.clipUid = svg.attr("id") + "-clip-" + d.data.name))
-    .append("use")
+        .append("use")
         .attr("xlink:href", d => d.leafUid.href);
 
     // Append multiline text. The last line shows the value and has a specific formatting.
@@ -91,7 +105,7 @@ function wordsmap() {
     // Add legend
     const legend = legend_svg.append("g")
         .attr("class", "legend")
-        .attr("transform", "translate(3,0)");  // 3——对齐树图
+        .attr("transform", "translate(6,0)");
 
     const legendItemSize = 18;
     const legendSpacing = 4;
@@ -99,8 +113,8 @@ function wordsmap() {
     const categories = wordsdata.children.map(d => d.name);
 
     categories.forEach((category, i) => {
-        const legendRow = legend.append("g")       // 一个矩形     +  一个间距      +   四个字   + 一个大间距（暂定40）
-            .attr("transform", `translate(${i * (legendItemSize + legendSpacing + 4*fontSize + 40)}, 0)`)
+        const legendRow = legend.append("g")
+            .attr("transform", `translate(${i * (legendItemSize + legendSpacing + 4 * fontSize + 40)}, 0)`)
             .style("vertical-align", "center");
 
         legendRow.append("rect")
@@ -110,8 +124,8 @@ function wordsmap() {
             .attr("fill-opacity", 0.6);
 
         legendRow.append("text")
-            .attr("transform", `translate(0, 5)`)		
-            .attr("x", legendItemSize +legendSpacing)
+            .attr("transform", `translate(0, 5)`)
+            .attr("x", legendItemSize + legendSpacing)
             .attr("y", 10)
             .style("font-size", `${fontSize}px`)
             .text(category);

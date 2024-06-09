@@ -249,7 +249,7 @@ Promise.all([
                 .on("mouseover", function (event, d_wxy2) {
                     var city_wxy2 = filteredData_wxy2.find(m_wxy2 => m_wxy2.startCity === d_wxy2.properties.name);
                     tooltip_wxy2.transition().duration(200).style("opacity", 0.9);
-                    tooltip_wxy2.html(`城市名：${d_wxy2.properties.name}<br>迁徙指数: ${city_wxy2.migrationActualIndex}`)
+                    tooltip_wxy2.html(`城市名：${d_wxy2.properties.name}<br>迁徙指数: ${city_wxy2.migrationActualIndex.toFixed(2)}`)
                         .style("left", (event.pageX + 5) + "px")
                         .style("top", (event.pageY - 28) + "px");
                     d3.select(this).classed("hovered_wxy2", true);
@@ -280,7 +280,7 @@ Promise.all([
             .attr("opacity", 0.8)
             .on("mouseover", function (event, d_wxy2) {
                 tooltip_wxy2.transition().duration(200).style("opacity", 0.9);
-                tooltip_wxy2.html(`城市名：${d_wxy2.name}<br>迁徙指数: ${d_wxy2.migrationActualIndex}`)
+                tooltip_wxy2.html(`城市名：${d_wxy2.name}<br>迁徙指数: ${d_wxy2.migrationActualIndex.toFixed(2)}`)
                     .style("left", (event.pageX + 5) + "px")
                     .style("top", (event.pageY - 28) + "px");
                 d3.select(this).classed("hovered_wxy2", true);

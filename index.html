@@ -141,18 +141,42 @@
     <p class="text">4.就业指标：该城市第三产业就业人员占比/全国第三产业就业人员占比。</p>
     <p class="text">5.医疗：该城市人均获得执业（助理）医生数量/全国人均获得执业（助理）医生数量；人均获得执业（助理）医生数量=执业（助理）医生数量/该城市户籍人口。</p>
     <p class="text">对2018-2023年的各指标计算了平均值，按照北上广三个城市进行分类，探究驱使人们从北上广逃离的因素是哪些？</p>
+    
     <!-- 雷达图 -->
     <div class="part3">
         <div>
             <div class="rad"></div>
-            <div class="rad-button" style="margin-top:5%;margin-left: 20%;">
-                <button id="data0-button">全体</button>
-                <button id="data1-button">北京</button>
-                <button id="data2-button">上海</button>
-                <button id="data3-button">广州</button>
-            </div>
+            <br>
         </div>
-        <div class="arc-text" style="margin-left:10%;margin-top:5%">
+        <div class="cc" style="margin-left:10%;margin-top:5%">
+            <form id="columnForm">
+                <label>
+                  <input type="checkbox" name="value1" checked> 收入
+                </label>
+                <label>
+                  <input type="checkbox" name="value2" checked> 消费
+                </label>
+                <label>
+                  <input type="checkbox" name="value3" checked> 房价
+                </label>
+                <label>
+                  <input type="checkbox" name="value4" checked> 就业
+                </label>
+                <label>
+                  <input type="checkbox" name="value5" checked> 医疗
+                </label>
+            </form>
+            <svg id="chart" width="600" height="400"></svg>
+        </div>
+    </div>
+    <div class="rad-button" >
+        <button id="data0-button">全体</button>
+        <button id="data1-button">北京</button>
+        <button id="data2-button">上海</button>
+        <button id="data3-button">广州</button>
+    </div>
+            <div class="arc-text" style="margin-left:10%;margin-top:5%">
+            
             <p class="arc-text-p">
                 通过分析，可以发现
             </p>
@@ -165,8 +189,24 @@
             <p class="arc-text-p">（1）从北京迁出的流入城市中，济南是较为特殊的城市，其房价、消费水平和收入水平都较高，猜测与其同样也是旅游城市有关。</p>
             <p class="arc-text-p">（2）从上海迁出的流入城市中，房价指数、消费指数和收入指数都高于其他两类城市。</p>
         </div>
-    </div>
     <br>
+
+    <!-- 房价散点图 -->
+    <h3>深入探析一：房价与人口迁徙</h3>
+    <h4 style="justify-content: center;">各城市房价与北上广迁入指数散点图</h4>
+    <div id="hprice"></div>
+    <p class="hprice-text">* <b>北上广迁入指数</b>，意指2018-2023年间，从北京、上海、广州三座城市迁徙到其他城市的年均实际迁徙指数；</p>
+    <p class="hprice-text">* <b>归一化</b>，指将原始数据按最值归一至0-1区间；</p>
+    <p class="hprice-text">* 图中共252个城市，不包含北上广所属的三个城市群中的城市，也不包含无房价数据城市。</p><br>
+    <p class="text">1. “北上广”房价遥遥领先。房价太高代表人们生活成本上升，经济压力增加。此外，房价过高通常被视为城市生活质量下降的象征。因而可以合理推断，“北上广”过高的房价水平是人们“逃离北上广”的重要推力。人们希望在其他地方寻找更好的发展机会和生活环境。</p>
+    <p class="text">2. 热门迁入（从北上广迁入）城市房价远低于“北上广最低房价参考线”。可以合理推断出热门迁入城市的房价水平较低，生活压力较小是人们从“北上广”逃向这些城市的重要吸引力。</p>
+
+
+    <!-- 医疗柱形图 -->
+    <h3>深入探析二：医疗与人口迁徙</h3>
+    <div id="health-chart-1"></div>
+    <p class="text">1.“北上广”三个城市的人均执业（助理）医生数量处于极低水平，分别是0.008、0.005、0.006人，远低于全国平均水平的0.315人，说明尽管一线城市有着先进的医疗水平，但是由于人口众多，造成了平均每个人享有的医疗资源反而较少，这意味着排队时间和等待成本的上升，在有需要的时候可能无法及时获得救助和治疗。</p>
+    <p class="text">2.Top15热门迁入城市的人均执业（助理）医生数量均远超“北上广”，体现出人们可能较为重视迁入地点能够给予自身的医疗资源。其中，始发地为北京的5个城市除葫芦岛外，人均享有的执业（助理）医生数量均高于全国平均水平；始发地为上海的5个城市则处于全国平均水平左右或略低于全国平均水平；始发地为广州的梅州、湛江、赣州高于全国平均水平，茂名、揭阳低于全国平均水平。</p>
 
 
 
@@ -191,10 +231,11 @@
     <script src="js/geo-bubble.js"></script>
     <script src="js/geo-line1.js"></script>
     <script src="js/geo-line2.js"></script>
-    <script src="js/index.js"></script>
+    <script src="js/rad.js"></script>
     <script src="js/wordsmap.js"></script>
-
-    <!-- <script src="js/chart.js" type="module"></script> -->
+    <script src="/js/HpriceScatter.js"></script>
+    <script src="js/health-chart-1.js"></script>
+    
     <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
 </body>
 

@@ -181,7 +181,7 @@ Promise.all([
                             tooltip_wxy3.transition()
                                 .duration(200)
                                 .style("opacity", .9);
-                            tooltip_wxy3.html("起始城市：" + d_wxy3.startCity + "<br>终点城市：" + d_wxy3.endCity + "<br>年度实际迁移指数：" + d_wxy3.migrationActualIndex)
+                            tooltip_wxy3.html("起始城市：" + d_wxy3.startCity + "<br>终点城市：" + d_wxy3.endCity + "<br>年度实际迁移指数：" + d_wxy3.migrationActualIndex.toFixed(2))
                                 .style("left", (event_wxy3.pageX + 5) + "px")
                                 .style("top", (event_wxy3.pageY - 28) + "px");
                         })
